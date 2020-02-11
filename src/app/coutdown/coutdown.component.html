@@ -1,0 +1,8 @@
+<p>coutdown works!</p>
+{{second}}
+
+<input *ngIf="isStart" type="number" [value]="second" (change)="onChange($event.target.value)">
+<button   (click)="start()" value="Start">Start</button>
+<button  (click)="stop()" value="Start">Stop</button>
+<button  (click)="reStart()" value="Start">reStart</button>
+<p  >hello</p>
