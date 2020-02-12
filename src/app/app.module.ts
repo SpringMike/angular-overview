@@ -8,12 +8,14 @@ import { FontSizeEditorComponent } from './font-size-editor/font-size-editor.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoutdownComponent } from './coutdown/coutdown.component';
 import {FormsModule} from '@angular/forms';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FontSizeEditorComponent,
-    CoutdownComponent
+    CoutdownComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,

@@ -6,36 +6,37 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./coutdown.component.css']
 })
 export class CoutdownComponent implements OnInit {
-
-  startTimer: any;
-  restartTimer: any;
+  private intervalId = 0;
+  startTimer: number;
   isStart = true;
   @Input()
-  second = 10;
-  constructor() { }
+  second: number;
   ngOnInit(): void {
+    this.startTimer = this.second;
+  }
+  clearTime() {
+    clearInterval(this.intervalId);
   }
   start() {
     this.isStart = false;
-    this.startTimer = setInterval(() => {
-      if (this.second > 0) {
-        this.second--;
+    this.clearTime();
+    this.intervalId = window.setInterval(() => {
+      if (this.startTimer > 0) {
+        this.startTimer--;
       }
     }, 1000 );
   }
   reStart() {
     this.isStart = false;
-    this.restartTimer = this.second;
-    this.restartTimer =  setInterval(() => {
-      if (this.second > 0) {
-        this.second--;
-      }
-    }, 1000 );
+    this.clearTime();
+    this.startTimer = this.second;
+    this.start();
   }
   stop() {
-   clearInterval(this.startTimer);
+   this.clearTime();
   }
   onChange(value) {
-    this.second = value;
+    this.startTimer = value;
+    this.second = value
   }
 }
